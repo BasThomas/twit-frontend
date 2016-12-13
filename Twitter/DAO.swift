@@ -9,8 +9,9 @@
 import Foundation
 
 protocol DAO {
-  func create()
-  func read()
+  static func create(object: Self)
+  static func read(with id: Int) -> Self
   func update()
   func delete()
+  static var all: [Self] { get }
 }
