@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias Trend = String
+typealias Hashtag = String
 typealias Username = String
 
 struct Tweet {
@@ -26,7 +26,7 @@ extension Tweet {
     return !mentions.isEmpty
   }
   
-  var hashtags: [Trend] {
+  var hashtags: [Hashtag] {
     return content.characters
       .split(separator: " ")
       .map(String.init)
