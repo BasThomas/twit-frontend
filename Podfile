@@ -3,4 +3,9 @@ target 'Twitter' do
 
   pod 'Freddy'
 
+  target 'TwitterTests' do
+    inherit! :search_paths
+    pod 'Freddy'
+  end
+
 end
