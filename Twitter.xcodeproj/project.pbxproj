@@ -17,6 +17,7 @@
 		49BA9CE91E0042A000BBF0C0 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA9CE81E0042A000BBF0C0 /* Tweet.swift */; };
 		49BA9CEB1E0046B800BBF0C0 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA9CEA1E0046B800BBF0C0 /* UserTests.swift */; };
 		49BA9CED1E00472900BBF0C0 /* TweetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA9CEC1E00472900BBF0C0 /* TweetTests.swift */; };
+		49D6AA671E005F5500682874 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D6AA661E005F5500682874 /* DAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		49BA9CE81E0042A000BBF0C0 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		49BA9CEA1E0046B800BBF0C0 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		49BA9CEC1E00472900BBF0C0 /* TweetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTests.swift; sourceTree = "<group>"; };
+		49D6AA661E005F5500682874 /* DAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +114,17 @@
 			children = (
 				49BA9CE61E00429800BBF0C0 /* User.swift */,
 				49BA9CE81E0042A000BBF0C0 /* Tweet.swift */,
+				49D6AA651E005F4D00682874 /* Protocols */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		49D6AA651E005F4D00682874 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				49D6AA661E005F5500682874 /* DAO.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D6AA671E005F5500682874 /* DAO.swift in Sources */,
 				49BA9CE71E00429800BBF0C0 /* User.swift in Sources */,
 				49BA9CE91E0042A000BBF0C0 /* Tweet.swift in Sources */,
 				49BA9CC81E00426900BBF0C0 /* SecondViewController.swift in Sources */,
@@ -440,6 +452,7 @@
 				49BA9CE11E00426900BBF0C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49BA9CE21E00426900BBF0C0 /* Build configuration list for PBXNativeTarget "TwitterTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +461,7 @@
 				49BA9CE41E00426900BBF0C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
