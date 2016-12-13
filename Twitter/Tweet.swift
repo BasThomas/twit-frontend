@@ -24,6 +24,30 @@ struct Tweet {
   }
 }
 
+extension Tweet: DAO {
+  typealias ID = Int
+  
+  static func create(object: Tweet, completionHandler: (ID) -> Void) {
+    //
+  }
+  
+  static func read(with id: ID, completionHandler: (Tweet) -> Void) {
+    //
+  }
+  
+  func update() {
+    //
+  }
+  
+  func delete() {
+    //
+  }
+  
+  static var all: [Tweet] {
+    fatalError()
+  }
+}
+
 extension Tweet {
   
   var containsHashtags: Bool {
