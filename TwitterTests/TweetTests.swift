@@ -10,40 +10,21 @@ import XCTest
 import Freddy
 @testable import Twitter
 
-private let now = Date()
-
 class TweetTests: XCTestCase {
   
-  let plainTweet = Tweet(content: "This tweet contains no hashtags.", timestamp: now)
-  let hashtags1Tweet = Tweet(content: "This #tweet contains two #hashtags.", timestamp: now)
-  let hashtags2Tweet = Tweet(content: "This #tweet contains a hashtag.", timestamp: now)
-  let mentions1Tweet = Tweet(content: "@bas This tweet contains a mention.", timestamp: now)
-  let mentions2Tweet = Tweet(content: "@aart @bas This tweet contains two mentions.", timestamp: now)
-  let mentionHashtagTweet = Tweet(content: "@bas This tweet contains a mention and a #hashtag.", timestamp: now)
+  let plainJSON = Mock.tweet.json.plain
+  let hashtags1JSON = Mock.tweet.json.hashtags1
+  let hashtags2JSON = Mock.tweet.json.hashtags2
+  let mentions1JSON = Mock.tweet.json.mentions1
+  let mentions2JSON = Mock.tweet.json.mentions2
+  let mentionHashtagJSON = Mock.tweet.json.mentionHashtag
   
-  let plainJSON: JSON = .dictionary([
-    "content": .string("This tweet contains no hashtags."),
-    "timestamp": .string(DateFormatter.iso8601.string(from: now))])
-  
-  let hashtags1JSON: JSON = .dictionary([
-    "content": .string("This #tweet contains two #hashtags."),
-    "timestamp": .string(DateFormatter.iso8601.string(from: now))])
-  
-  let hashtags2JSON: JSON = .dictionary([
-    "content": .string("This #tweet contains a hashtag."),
-    "timestamp": .string(DateFormatter.iso8601.string(from: now))])
-  
-  let mentions1JSON: JSON = .dictionary([
-    "content": .string("@bas This tweet contains a mention."),
-    "timestamp": .string(DateFormatter.iso8601.string(from: now))])
-  
-  let mentions2JSON: JSON = .dictionary([
-    "content": .string("@aart @bas This tweet contains two mentions."),
-    "timestamp": .string(DateFormatter.iso8601.string(from: now))])
-  
-  let mentionHashtagJSON: JSON = .dictionary([
-    "content": .string("@bas This tweet contains a mention and a #hashtag."),
-    "timestamp": .string(DateFormatter.iso8601.string(from: now))])
+  let plainTweet = Mock.tweet.object.plain
+  let hashtags1Tweet = Mock.tweet.object.hashtags1
+  let hashtags2Tweet = Mock.tweet.object.hashtags2
+  let mentions1Tweet = Mock.tweet.object.mentions1
+  let mentions2Tweet = Mock.tweet.object.mentions2
+  let mentionHashtagTweet = Mock.tweet.object.mentionHashtag
   
   override func setUp() {
     super.setUp()
@@ -107,5 +88,12 @@ class TweetTests: XCTestCase {
     XCTAssertEqual(mentions1Tweet.toJSON(), mentions1JSON)
     XCTAssertEqual(mentions2Tweet.toJSON(), mentions2JSON)
     XCTAssertEqual(mentionHashtagTweet.toJSON(), mentionHashtagJSON)
+  }
+  
+  func testEquality() {
+    XCTAssertEqual(plainJSON, plainJSON)
+    XCTAssertEqual(plainTweet, plainTweet)
+    XCTAssertEqual(plainJSON, plainTweet.toJSON())
+    XCTAssertEqual(plainTweet, try Tweet(json: plainJSON))
   }
 }

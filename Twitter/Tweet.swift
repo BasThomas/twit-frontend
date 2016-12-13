@@ -13,10 +13,12 @@ typealias Hashtag = String
 typealias Username = String
 
 struct Tweet {
+  let author: User
   let content: String
   let timestamp: Date
   
-  init(content: String, timestamp: Date = Date()) {
+  init(author: User, content: String, timestamp: Date = Date()) {
+    self.author = author
     self.content = content
     self.timestamp = timestamp
   }
@@ -52,9 +54,17 @@ extension Tweet {
   }
 }
 
+extension Tweet: Equatable {
+  
+  static func ==(lhs: Tweet, rhs: Tweet) -> Bool {
+    return lhs.content == rhs.content && lhs.timestamp == rhs.timestamp
+  }
+}
+
 extension Tweet: JSONDecodable {
   
   init(json: JSON) throws {
+    author = try User(json: try JSON(json.getDictionary(at: "author")))
     content = try json.getString(at: "content")
     timestamp = DateFormatter.iso8601.date(from: try json.getString(at: "timestamp"))!
   }
@@ -64,24 +74,8 @@ extension Tweet: JSONEncodable {
   
   func toJSON() -> JSON {
     return .dictionary([
+      "author": author.toJSON(),
       "content": .string(content),
       "timestamp": .string(DateFormatter.iso8601.string(from: timestamp))])
-  }
-}
-
-extension Tweet: ExpressibleByStringLiteral {
-  typealias UnicodeScalarLiteralType = StringLiteralType
-  typealias ExtendedGraphemeClusterLiteralType = StringLiteralType
-
-  public init(stringLiteral value: StringLiteralType) {
-    self.init(content: value)
-  }
-  
-  public init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) {
-    self.init(content: value)
-  }
-  
-  public init(unicodeScalarLiteral value: UnicodeScalarLiteralType) {
-    self.init(content: value)
   }
 }

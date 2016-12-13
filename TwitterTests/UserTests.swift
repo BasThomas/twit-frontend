@@ -12,61 +12,15 @@ import Freddy
 
 class UserTests: XCTestCase {
   
-  let plainJSON: JSON = .dictionary([
-    "name": .string("Bas"),
-    "location": .string("The Netherlands"),
-    "website": .string("http://www.basbroek.nl"),
-    "bio": .string("Writes things. Mostly code."),
-    "avatar": .string("http://www.google.com")])
+  let plainJSON = Mock.user.json.plain
+  let nilWebsiteJSON = Mock.user.json.nilWebsite
+  let nilAvatarJSON = Mock.user.json.nilAvatar
+  let nilWebsiteAvatarJSON = Mock.user.json.nilWebsiteAvatar
   
-  let nilWebsiteJSON: JSON = .dictionary([
-    "name": .string("Bas"),
-    "location": .string("The Netherlands"),
-    "website": .null,
-    "bio": .string("Writes things. Mostly code."),
-    "avatar": .string("http://www.google.com")])
-  
-  let nilAvatarJSON: JSON = .dictionary([
-    "name": .string("Bas"),
-    "location": .string("The Netherlands"),
-    "website": .string("http://www.basbroek.nl"),
-    "bio": .string("Writes things. Mostly code."),
-    "avatar": .null])
-  
-  let nilWebsiteAvatarJSON: JSON = .dictionary([
-    "name": .string("Bas"),
-    "location": .string("The Netherlands"),
-    "website": .null,
-    "bio": .string("Writes things. Mostly code."),
-    "avatar": .null])
-  
-  let plainUser = User(
-    name: "Bas",
-    location: "The Netherlands",
-    website: URL(string: "http://www.basbroek.nl"),
-    bio: "Writes things. Mostly code.",
-    avatar: URL(string: "http://www.google.com"))
-  
-  let nilWebsiteUser = User(
-    name: "Bas",
-    location: "The Netherlands",
-    website: nil,
-    bio: "Writes things. Mostly code.",
-    avatar: URL(string: "http://www.google.com"))
-  
-  let nilAvatarUser = User(
-    name: "Bas",
-    location: "The Netherlands",
-    website: URL(string: "http://www.basbroek.nl"),
-    bio: "Writes things. Mostly code.",
-    avatar: nil)
-  
-  let nilWebsiteAvatarUser = User(
-    name: "Bas",
-    location: "The Netherlands",
-    website: nil,
-    bio: "Writes things. Mostly code.",
-    avatar: nil)
+  let plainUser = Mock.user.object.plain
+  let nilWebsiteUser = Mock.user.object.nilWebsite
+  let nilAvatarUser = Mock.user.object.nilAvatar
+  let nilWebsiteAvatarUser = Mock.user.object.nilWebsiteAvatar
   
   override func setUp() {
     super.setUp()
@@ -92,5 +46,12 @@ class UserTests: XCTestCase {
     XCTAssertEqual(nilWebsiteUser.toJSON(), nilWebsiteJSON)
     XCTAssertEqual(nilAvatarUser.toJSON(), nilAvatarJSON)
     XCTAssertEqual(nilWebsiteAvatarUser.toJSON(), nilWebsiteAvatarJSON)
+  }
+  
+  func testEquality() {
+    XCTAssertEqual(plainJSON, plainJSON)
+    XCTAssertEqual(plainUser, plainUser)
+    XCTAssertEqual(plainJSON, plainUser.toJSON())
+    XCTAssertEqual(plainUser, try User(json: plainJSON))
   }
 }

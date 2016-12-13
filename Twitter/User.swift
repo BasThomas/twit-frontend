@@ -17,6 +17,7 @@ struct User {
   let avatar: URL?
   var followers: [User] = []
   var following: [User] = []
+  var tweets: [Tweet] = []
   
   init(name: String, location: String = "", website: URL? = nil, bio: String = "", avatar: URL? = nil) {
     self.name = name
@@ -24,6 +25,13 @@ struct User {
     self.website = website
     self.bio = bio
     self.avatar = avatar
+  }
+}
+
+extension User: Equatable {
+  
+  static func ==(lhs: User, rhs: User) -> Bool {
+    return lhs.name == rhs.name
   }
 }
 
