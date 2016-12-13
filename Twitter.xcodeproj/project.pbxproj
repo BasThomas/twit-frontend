@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4977A44E1E006458001CA724 /* DateFormatter+ISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977A44D1E006458001CA724 /* DateFormatter+ISO8601.swift */; };
 		49BA9CC41E00426900BBF0C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA9CC31E00426900BBF0C0 /* AppDelegate.swift */; };
 		49BA9CC61E00426900BBF0C0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA9CC51E00426900BBF0C0 /* FirstViewController.swift */; };
 		49BA9CC81E00426900BBF0C0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA9CC71E00426900BBF0C0 /* SecondViewController.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		3D4CAC014126CF38138D480E /* Pods_Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4977A44D1E006458001CA724 /* DateFormatter+ISO8601.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateFormatter+ISO8601.swift"; sourceTree = "<group>"; };
 		49BA9CC01E00426900BBF0C0 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA9CC31E00426900BBF0C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49BA9CC51E00426900BBF0C0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				49BA9CCC1E00426900BBF0C0 /* Assets.xcassets */,
 				49BA9CCE1E00426900BBF0C0 /* LaunchScreen.storyboard */,
 				49BA9CD11E00426900BBF0C0 /* Info.plist */,
+				4977A44D1E006458001CA724 /* DateFormatter+ISO8601.swift */,
 			);
 			path = Twitter;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			files = (
 				49D6AA671E005F5500682874 /* DAO.swift in Sources */,
 				49BA9CE71E00429800BBF0C0 /* User.swift in Sources */,
+				4977A44E1E006458001CA724 /* DateFormatter+ISO8601.swift in Sources */,
 				49BA9CE91E0042A000BBF0C0 /* Tweet.swift in Sources */,
 				49BA9CC81E00426900BBF0C0 /* SecondViewController.swift in Sources */,
 				49BA9CC41E00426900BBF0C0 /* AppDelegate.swift in Sources */,
