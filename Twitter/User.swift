@@ -28,6 +28,30 @@ struct User {
   }
 }
 
+extension User: DAO {
+  typealias ID = String
+  
+  static func create(object: User, completionHandler: (_Result<ID, NetworkError>.result) -> Void) {
+    //
+  }
+  
+  static func read(with id: ID, completionHandler: (_Result<User, NetworkError>.result) -> Void) {
+    //
+  }
+  
+  func update(completionHandler: CompletionHandler) {
+    //
+  }
+  
+  func delete(completionHandler: CompletionHandler) {
+    //
+  }
+  
+  static var all: [User] {
+    fatalError()
+  }
+}
+
 extension User: Equatable {
   
   static func ==(lhs: User, rhs: User) -> Bool {

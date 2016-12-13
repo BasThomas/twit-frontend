@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49083A561E008589009D041C /* _Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49083A551E008589009D041C /* _Result.swift */; };
+		491CEAFE1E00826F00F3E241 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CEAFD1E00826F00F3E241 /* Network.swift */; };
 		4977A44E1E006458001CA724 /* DateFormatter+ISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977A44D1E006458001CA724 /* DateFormatter+ISO8601.swift */; };
 		49BA9CC41E00426900BBF0C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA9CC31E00426900BBF0C0 /* AppDelegate.swift */; };
 		49BA9CC61E00426900BBF0C0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA9CC51E00426900BBF0C0 /* FirstViewController.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		3D4CAC014126CF38138D480E /* Pods_Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49083A551E008589009D041C /* _Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Result.swift; sourceTree = "<group>"; };
+		491CEAFD1E00826F00F3E241 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		4977A44D1E006458001CA724 /* DateFormatter+ISO8601.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateFormatter+ISO8601.swift"; sourceTree = "<group>"; };
 		49BA9CC01E00426900BBF0C0 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA9CC31E00426900BBF0C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		491CEAFF1E00827700F3E241 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				491CEAFD1E00826F00F3E241 /* Network.swift */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
 		49BA9CB71E00426900BBF0C0 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				49BA9CE51E00428B00BBF0C0 /* Model */,
+				491CEAFF1E00827700F3E241 /* Control */,
 				49BA9CC31E00426900BBF0C0 /* AppDelegate.swift */,
 				49BA9CC51E00426900BBF0C0 /* FirstViewController.swift */,
 				49BA9CC71E00426900BBF0C0 /* SecondViewController.swift */,
@@ -115,6 +128,7 @@
 				49BA9CD11E00426900BBF0C0 /* Info.plist */,
 				4977A44D1E006458001CA724 /* DateFormatter+ISO8601.swift */,
 				49C213721E007D670063A93D /* Date+ISO8601.swift */,
+				49083A551E008589009D041C /* _Result.swift */,
 			);
 			path = Twitter;
 			sourceTree = "<group>";
@@ -387,7 +401,9 @@
 				4977A44E1E006458001CA724 /* DateFormatter+ISO8601.swift in Sources */,
 				49BA9CE91E0042A000BBF0C0 /* Tweet.swift in Sources */,
 				49BA9CC81E00426900BBF0C0 /* SecondViewController.swift in Sources */,
+				491CEAFE1E00826F00F3E241 /* Network.swift in Sources */,
 				49BA9CC41E00426900BBF0C0 /* AppDelegate.swift in Sources */,
+				49083A561E008589009D041C /* _Result.swift in Sources */,
 				49BA9CC61E00426900BBF0C0 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
