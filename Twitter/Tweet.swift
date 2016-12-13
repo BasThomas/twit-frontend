@@ -68,3 +68,20 @@ extension Tweet: JSONEncodable {
       "timestamp": .string(DateFormatter.iso8601.string(from: timestamp))])
   }
 }
+
+extension Tweet: ExpressibleByStringLiteral {
+  typealias UnicodeScalarLiteralType = StringLiteralType
+  typealias ExtendedGraphemeClusterLiteralType = StringLiteralType
+
+  public init(stringLiteral value: StringLiteralType) {
+    self.init(content: value)
+  }
+  
+  public init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) {
+    self.init(content: value)
+  }
+  
+  public init(unicodeScalarLiteral value: UnicodeScalarLiteralType) {
+    self.init(content: value)
+  }
+}
