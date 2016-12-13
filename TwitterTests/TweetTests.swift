@@ -7,16 +7,43 @@
 //
 
 import XCTest
+import Freddy
 @testable import Twitter
+
+private let now = Date()
 
 class TweetTests: XCTestCase {
   
-  let plain = Tweet(content: "This tweet contains no hashtags.")
-  let hashtags1 = Tweet(content: "This #tweet contains two #hashtags.")
-  let hashtags2 = Tweet(content: "This #tweet contains a hashtag.")
-  let mentions1 = Tweet(content: "@bas This tweet contains a mention.")
-  let mentions2 = Tweet(content: "@aart @bas This tweet contains two mentions.")
-  let mentionHashtag = Tweet(content: "@bas This tweet contains a mention and a #hashtag.")
+  let plainTweet = Tweet(content: "This tweet contains no hashtags.", timestamp: now)
+  let hashtags1Tweet = Tweet(content: "This #tweet contains two #hashtags.", timestamp: now)
+  let hashtags2Tweet = Tweet(content: "This #tweet contains a hashtag.", timestamp: now)
+  let mentions1Tweet = Tweet(content: "@bas This tweet contains a mention.", timestamp: now)
+  let mentions2Tweet = Tweet(content: "@aart @bas This tweet contains two mentions.", timestamp: now)
+  let mentionHashtagTweet = Tweet(content: "@bas This tweet contains a mention and a #hashtag.", timestamp: now)
+  
+  let plainJSON: JSON = .dictionary([
+    "content": .string("This tweet contains no hashtags."),
+    "timestamp": .string(DateFormatter.iso8601.string(from: now))])
+  
+  let hashtags1JSON: JSON = .dictionary([
+    "content": .string("This #tweet contains two #hashtags."),
+    "timestamp": .string(DateFormatter.iso8601.string(from: now))])
+  
+  let hashtags2JSON: JSON = .dictionary([
+    "content": .string("This #tweet contains a hashtag."),
+    "timestamp": .string(DateFormatter.iso8601.string(from: now))])
+  
+  let mentions1JSON: JSON = .dictionary([
+    "content": .string("@bas This tweet contains a mention."),
+    "timestamp": .string(DateFormatter.iso8601.string(from: now))])
+  
+  let mentions2JSON: JSON = .dictionary([
+    "content": .string("@aart @bas This tweet contains two mentions."),
+    "timestamp": .string(DateFormatter.iso8601.string(from: now))])
+  
+  let mentionHashtagJSON: JSON = .dictionary([
+    "content": .string("@bas This tweet contains a mention and a #hashtag."),
+    "timestamp": .string(DateFormatter.iso8601.string(from: now))])
   
   override func setUp() {
     super.setUp()
@@ -27,36 +54,58 @@ class TweetTests: XCTestCase {
   }
   
   func testContainsHashtags() {
-    XCTAssertFalse(plain.containsHashtags)
-    XCTAssertFalse(mentions1.containsHashtags)
-    XCTAssertFalse(mentions2.containsHashtags)
+    XCTAssertFalse(plainTweet.containsHashtags)
+    XCTAssertFalse(mentions1Tweet.containsHashtags)
+    XCTAssertFalse(mentions2Tweet.containsHashtags)
     
-    XCTAssertTrue(hashtags1.containsHashtags)
-    XCTAssertTrue(hashtags2.containsHashtags)
-    XCTAssertTrue(mentionHashtag.containsHashtags)
+    XCTAssertTrue(hashtags1Tweet.containsHashtags)
+    XCTAssertTrue(hashtags2Tweet.containsHashtags)
+    XCTAssertTrue(mentionHashtagTweet.containsHashtags)
   }
   
   func testContainsMentions() {
-    XCTAssertTrue(mentions1.containsMentions)
-    XCTAssertTrue(mentions2.containsMentions)
-    XCTAssertTrue(mentionHashtag.containsMentions)
+    XCTAssertTrue(mentions1Tweet.containsMentions)
+    XCTAssertTrue(mentions2Tweet.containsMentions)
+    XCTAssertTrue(mentionHashtagTweet.containsMentions)
     
-    XCTAssertFalse(plain.containsMentions)
-    XCTAssertFalse(hashtags1.containsMentions)
-    XCTAssertFalse(hashtags2.containsMentions)
+    XCTAssertFalse(plainTweet.containsMentions)
+    XCTAssertFalse(hashtags1Tweet.containsMentions)
+    XCTAssertFalse(hashtags2Tweet.containsMentions)
   }
   
   func testHashtags() {
-    XCTAssertEqual(hashtags1.hashtags, ["tweet", "hashtags"])
-    XCTAssertEqual(hashtags2.hashtags, ["tweet"])
-    XCTAssertEqual(mentionHashtag.hashtags, ["hashtag"])
-    XCTAssertEqual(plain.hashtags, [])
+    XCTAssertEqual(hashtags1Tweet.hashtags, ["tweet", "hashtags"])
+    XCTAssertEqual(hashtags2Tweet.hashtags, ["tweet"])
+    XCTAssertEqual(mentionHashtagTweet.hashtags, ["hashtag"])
+    XCTAssertEqual(plainTweet.hashtags, [])
   }
   
   func testMentions() {
-    XCTAssertEqual(mentions1.mentions, ["bas"])
-    XCTAssertEqual(mentions2.mentions, ["aart", "bas"])
-    XCTAssertEqual(mentionHashtag.mentions, ["bas"])
-    XCTAssertEqual(plain.mentions, [])
+    XCTAssertEqual(mentions1Tweet.mentions, ["bas"])
+    XCTAssertEqual(mentions2Tweet.mentions, ["aart", "bas"])
+    XCTAssertEqual(mentionHashtagTweet.mentions, ["bas"])
+    XCTAssertEqual(plainTweet.mentions, [])
+  }
+  
+  func testDecoding() {
+    do {
+      _ = try Tweet(json: plainJSON)
+      _ = try Tweet(json: hashtags1JSON)
+      _ = try Tweet(json: hashtags2JSON)
+      _ = try Tweet(json: mentions1JSON)
+      _ = try Tweet(json: mentions2JSON)
+      _ = try Tweet(json: mentionHashtagJSON)
+    } catch {
+      XCTFail("Decoding should have succeeded: \(error)")
+    }
+  }
+  
+  func testEncoding() {
+    XCTAssertEqual(plainTweet.toJSON(), plainJSON)
+    XCTAssertEqual(hashtags1Tweet.toJSON(), hashtags1JSON)
+    XCTAssertEqual(hashtags2Tweet.toJSON(), hashtags2JSON)
+    XCTAssertEqual(mentions1Tweet.toJSON(), mentions1JSON)
+    XCTAssertEqual(mentions2Tweet.toJSON(), mentions2JSON)
+    XCTAssertEqual(mentionHashtagTweet.toJSON(), mentionHashtagJSON)
   }
 }

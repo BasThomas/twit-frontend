@@ -7,13 +7,19 @@
 //
 
 import Foundation
+import Freddy
 
 typealias Hashtag = String
 typealias Username = String
 
 struct Tweet {
   let content: String
-  let date = Date()
+  let timestamp: Date
+  
+  init(content: String, timestamp: Date = Date()) {
+    self.content = content
+    self.timestamp = timestamp
+  }
 }
 
 extension Tweet {
@@ -43,5 +49,22 @@ extension Tweet {
       .filter { $0.hasPrefix("@") }
       .map { $0.characters.dropFirst(1) }
       .map(String.init)
+  }
+}
+
+extension Tweet: JSONDecodable {
+  
+  init(json: JSON) throws {
+    content = try json.getString(at: "content")
+    timestamp = DateFormatter.iso8601.date(from: try json.getString(at: "timestamp"))!
+  }
+}
+
+extension Tweet: JSONEncodable {
+  
+  func toJSON() -> JSON {
+    return .dictionary([
+      "content": .string(content),
+      "timestamp": .string(DateFormatter.iso8601.string(from: timestamp))])
   }
 }
