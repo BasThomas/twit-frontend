@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Freddy
 
 struct User {
   let name: String
@@ -23,5 +24,42 @@ struct User {
     self.website = website
     self.bio = bio
     self.avatar = avatar
+  }
+}
+
+extension User: JSONDecodable {
+  
+  init(json: JSON) throws {
+    name = try json.getString(at: "name")
+    location = try json.getString(at: "location")
+    website = URL(string: try json.getString(at: "website", alongPath: [.NullBecomesNil]) ?? "")
+    bio = try json.getString(at: "bio")
+    avatar = URL(string: try json.getString(at: "avatar", alongPath: [.NullBecomesNil]) ?? "")
+  }
+}
+
+extension User: JSONEncodable {
+  
+  func toJSON() -> JSON {
+    let website: JSON
+    let avatar: JSON
+    if let websiteString = self.website?.absoluteString {
+      website = .string(websiteString)
+    } else {
+      website = .null
+    }
+    
+    if let avatarString = self.avatar?.absoluteString {
+      avatar = .string(avatarString)
+    } else {
+      avatar = .null
+    }
+    
+    return .dictionary([
+      "name": .string(name),
+      "location": .string(location),
+      "website": website,
+      "bio": .string(bio),
+      "avatar": avatar])
   }
 }
