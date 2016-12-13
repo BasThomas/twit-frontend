@@ -3,6 +3,7 @@ target 'Twitter' do
 
   pod 'Freddy'
   pod 'Alamofire'
+  pod 'Result'
 
   target 'TwitterTests' do
     inherit! :search_paths
