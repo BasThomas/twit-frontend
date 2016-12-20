@@ -31,21 +31,22 @@ struct User {
 }
 
 extension User: DAO {
+
   typealias ID = String
   
-  static func create(object: User, completionHandler: (_Result<ID, NetworkError>.result) -> Void) {
+  static func create(object: User, completionHandler: @escaping (_Result<ID, NetworkError>.result) -> Void) {
+    Network.create(user: object, completionHandler: completionHandler)
+  }
+  
+  static func read(with id: ID, completionHandler: @escaping (_Result<User, NetworkError>.result) -> Void) {
+    Network.user(for: id, completionHandler: completionHandler)
+  }
+  
+  func update(completionHandler: @escaping CompletionHandler) {
     //
   }
   
-  static func read(with id: ID, completionHandler: (_Result<User, NetworkError>.result) -> Void) {
-    //
-  }
-  
-  func update(completionHandler: CompletionHandler) {
-    //
-  }
-  
-  func delete(completionHandler: CompletionHandler) {
+  func delete(completionHandler: @escaping CompletionHandler) {
     //
   }
   

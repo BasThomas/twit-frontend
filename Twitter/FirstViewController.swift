@@ -14,7 +14,18 @@ class FirstViewController: UIViewController {
     super.viewDidLoad()
     let user = User(id: 1, name: "Bas")
     let tweet = Tweet(author: user, content: "Testtweet from iOS")
-    Network.create(tweet: tweet) { result in
+//    Tweet.create(object: tweet) { result in
+//      print(result)
+//    }
+//    Network.create(tweet: tweet) { result in
+//      print(result)
+//    }
+    
+//    Tweet.read(with: 9) { result in
+//      print(result)
+//    }
+    
+    User.read(with: "BasThomas") { result in
       print(result)
     }
   }

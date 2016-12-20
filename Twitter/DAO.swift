@@ -13,9 +13,9 @@ protocol DAO {
   typealias IDCompletionHandler = (_Result<ID, NetworkError>.result) -> Void
   typealias SelfCompletionHandler = (_Result<Self, NetworkError>.result) -> Void
   
-  static func create(object: Self, completionHandler: IDCompletionHandler)
-  static func read(with id: ID, completionHandler: SelfCompletionHandler)
-  func update(completionHandler: CompletionHandler)
-  func delete(completionHandler: CompletionHandler)
+  static func create(object: Self, completionHandler: @escaping IDCompletionHandler)
+  static func read(with id: ID, completionHandler: @escaping SelfCompletionHandler)
+  func update(completionHandler: @escaping CompletionHandler)
+  func delete(completionHandler: @escaping CompletionHandler)
   static var all: [Self] { get }
 }

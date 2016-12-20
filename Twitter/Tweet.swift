@@ -27,19 +27,19 @@ struct Tweet {
 extension Tweet: DAO {
   typealias ID = Int
   
-  static func create(object: Tweet, completionHandler: (_Result<ID, NetworkError>.result) -> Void) {
+  static func create(object: Tweet, completionHandler: @escaping (_Result<ID, NetworkError>.result) -> Void) {
+    Network.create(tweet: object, completionHandler: completionHandler)
+  }
+  
+  static func read(with id: ID, completionHandler: @escaping (_Result<Tweet, NetworkError>.result) -> Void) {
+    Network.tweet(for: id, completionHandler: completionHandler)
+  }
+  
+  func update(completionHandler: @escaping CompletionHandler) {
     //
   }
   
-  static func read(with id: ID, completionHandler: (_Result<Tweet, NetworkError>.result) -> Void) {
-    //
-  }
-  
-  func update(completionHandler: CompletionHandler) {
-    //
-  }
-  
-  func delete(completionHandler: CompletionHandler) {
+  func delete(completionHandler: @escaping CompletionHandler) {
     //
   }
   
