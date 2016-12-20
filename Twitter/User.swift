@@ -10,6 +10,7 @@ import Foundation
 import Freddy
 
 struct User {
+  let id: Int
   let name: String
   let location: String
   let website: URL?
@@ -19,7 +20,8 @@ struct User {
   var following: [User] = []
   var tweets: [Tweet] = []
   
-  init(name: String, location: String = "", website: URL? = nil, bio: String = "", avatar: URL? = nil) {
+  init(id: Int, name: String, location: String = "", website: URL? = nil, bio: String = "", avatar: URL? = nil) {
+    self.id = id
     self.name = name
     self.location = location
     self.website = website
@@ -52,6 +54,19 @@ extension User: DAO {
   }
 }
 
+extension User {
+  
+  mutating func follow(user: User) {
+    following.append(user)
+//    user.followers.append(self)
+  }
+  
+  mutating func unfollow(user: User) {
+    following = following.filter { $0 != user }
+//    user.followers.filter { $0 != user }
+  }
+}
+
 extension User: Equatable {
   
   static func ==(lhs: User, rhs: User) -> Bool {
@@ -62,6 +77,7 @@ extension User: Equatable {
 extension User: JSONDecodable {
   
   init(json: JSON) throws {
+    id = try json.getInt(at: "id")
     name = try json.getString(at: "name")
     location = try json.getString(at: "location")
     website = URL(string: try json.getString(at: "website", alongPath: [.NullBecomesNil]) ?? "")
@@ -88,6 +104,7 @@ extension User: JSONEncodable {
     }
     
     return .dictionary([
+      "id": .int(id),
       "name": .string(name),
       "location": .string(location),
       "website": website,

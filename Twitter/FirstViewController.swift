@@ -12,14 +12,10 @@ class FirstViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    let user = User(id: 1, name: "Bas")
+    let tweet = Tweet(author: user, content: "Testtweet from iOS")
+    Network.create(tweet: tweet) { result in
+      print(result)
+    }
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
-
 }
-

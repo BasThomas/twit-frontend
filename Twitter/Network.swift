@@ -11,8 +11,11 @@ import Alamofire
 import Freddy
 import enum Result.Result
 
+private let baseURL = "http://localhost/backend/public/"
+
 enum NetworkError: Error {
-  
+  case alamofire(Error)
+  case cast
 }
 
 enum Network { }
@@ -20,8 +23,20 @@ enum Network { }
 // MARK: - Tweets
 extension Network {
   
-  static func create(tweet: Tweet, completionHandler: TweetIDCompletionHandler) {
-    
+  static func create(tweet: Tweet, completionHandler: @escaping TweetIDCompletionHandler) {
+    let parameters: [String: Any] = ["authorID": tweet.author.id, "content": tweet.content]
+    Alamofire.request("\(baseURL)/tweets/create", method: .post, parameters: parameters).responseJSON { response in
+      switch response.result {
+      case let .success(id):
+        guard let tweetID = id as? Tweet.ID else {
+          completionHandler(.failure(.cast))
+          return
+        }
+        completionHandler(.success(tweetID))
+      case let .failure(error):
+        completionHandler(.failure(.alamofire(error)))
+      }
+    }
   }
   
   static func tweet(for id: Tweet.ID, completionHandler: TweetCompletionHandler) {

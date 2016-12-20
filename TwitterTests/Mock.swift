@@ -16,6 +16,7 @@ enum Mock {
   enum user {
     enum object {
       static let plain = User(
+        id: 1,
         name: "Bas",
         location: "The Netherlands",
         website: URL(string: "http://www.basbroek.nl"),
@@ -23,6 +24,7 @@ enum Mock {
         avatar: URL(string: "http://www.google.com"))
       
       static let nilWebsite = User(
+        id: 1,
         name: "Bas",
         location: "The Netherlands",
         website: nil,
@@ -30,6 +32,7 @@ enum Mock {
         avatar: URL(string: "http://www.google.com"))
       
       static let nilAvatar = User(
+        id: 1,
         name: "Bas",
         location: "The Netherlands",
         website: URL(string: "http://www.basbroek.nl"),
@@ -37,6 +40,7 @@ enum Mock {
         avatar: nil)
       
       static let nilWebsiteAvatar = User(
+        id: 1,
         name: "Bas",
         location: "The Netherlands",
         website: nil,
@@ -46,6 +50,7 @@ enum Mock {
     
     enum json {
       static let plain: JSON = .dictionary([
+        "id": .int(1),
         "name": .string("Bas"),
         "location": .string("The Netherlands"),
         "website": .string("http://www.basbroek.nl"),
@@ -53,6 +58,7 @@ enum Mock {
         "avatar": .string("http://www.google.com")])
       
       static let nilWebsite: JSON = .dictionary([
+        "id": .int(1),
         "name": .string("Bas"),
         "location": .string("The Netherlands"),
         "website": .null,
@@ -60,6 +66,7 @@ enum Mock {
         "avatar": .string("http://www.google.com")])
       
       static let nilAvatar: JSON = .dictionary([
+        "id": .int(1),
         "name": .string("Bas"),
         "location": .string("The Netherlands"),
         "website": .string("http://www.basbroek.nl"),
@@ -67,6 +74,7 @@ enum Mock {
         "avatar": .null])
       
       static let nilWebsiteAvatar: JSON = .dictionary([
+        "id": .int(1),
         "name": .string("Bas"),
         "location": .string("The Netherlands"),
         "website": .null,
