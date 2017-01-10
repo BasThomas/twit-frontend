@@ -53,6 +53,10 @@ extension User: DAO {
   static var all: [User] {
     fatalError()
   }
+  
+  func timeline(for user: User, completionHandler: @escaping TweetsCompletionHandler) {
+    Network.timeline(for: user, completionHandler: completionHandler)
+  }
 }
 
 extension User {

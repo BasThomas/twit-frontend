@@ -115,6 +115,27 @@ extension Network {
       }
     }
   }
+  
+  static func timeline(for user: User, completionHandler: @escaping TweetsCompletionHandler) {
+    Alamofire.request("\(baseURL)/users/\(user.name)/timeline", method: .get).responseJSON { response in
+      switch response.result {
+      case .success:
+        guard let data = response.data else {
+          completionHandler(.failure(.invalidData))
+          return
+        }
+        do {
+          let json = try JSON(data: data)
+          let tweets = try json.decodedArray(type: Tweet.self)
+          completionHandler(.success(tweets))
+        } catch {
+          completionHandler(.failure(.freddy(error)))
+        }
+      case let .failure(error):
+        completionHandler(.failure(.alamofire(error)))
+      }
+    }
+  }
 }
 
 // MARK: - Users

@@ -13,6 +13,7 @@ class OverviewTableViewController: UITableViewController {
   @IBOutlet var tweetField: UITextField!
   @IBOutlet var tweetButton: UIButton!
   @IBOutlet var latestTweet: UITextView!
+  @IBOutlet var timeline: UITextView!
   
   var user: User?
   
@@ -72,9 +73,20 @@ extension OverviewTableViewController {
       guard let strongSelf = self else { return }
       strongSelf.latestTweet.text = result.value?.content
     }
+    
+    Network.timeline(for: user) { [weak self] result in
+      guard let strongSelf = self else { return }
+      strongSelf.timeline.text = ""
+      result.value?.forEach {
+        strongSelf.timeline.text?.append($0.content)
+        strongSelf.timeline.text?.append("\n\n")
+      }
+    }
   }
   
   func reevaluate() {
     tweetButton.isEnabled = !tweetField.text!.isEmpty && user != nil
+    latestTweet.text = ""
+    timeline.text = ""
   }
 }

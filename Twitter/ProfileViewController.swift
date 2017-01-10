@@ -35,7 +35,6 @@ class ProfileViewController: UIViewController {
           guard let strongSelf = self else { return }
           switch result {
           case let .success(tweets):
-            strongSelf.tweets.text = ""
             tweets.forEach {
               strongSelf.tweets.text?.append($0.content)
               strongSelf.tweets.text?.append("\n\n")

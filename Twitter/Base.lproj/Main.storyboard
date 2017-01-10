@@ -88,12 +88,26 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="timeline" id="a14-Yc-bGc">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ugp-fL-8sM">
-                                        <rect key="frame" x="0.0" y="447.5" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="500" id="ugp-fL-8sM">
+                                        <rect key="frame" x="0.0" y="447.5" width="375" height="500"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ugp-fL-8sM" id="vfj-0J-9ZP">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="499.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="timeline" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Xz-HO-xsB">
+                                                    <rect key="frame" x="8" y="8" width="359" height="483.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9Xz-HO-xsB" firstAttribute="top" secondItem="vfj-0J-9ZP" secondAttribute="top" constant="8" id="MZV-4J-vCT"/>
+                                                <constraint firstAttribute="trailing" secondItem="9Xz-HO-xsB" secondAttribute="trailing" constant="8" id="eYj-wr-Hxy"/>
+                                                <constraint firstAttribute="bottom" secondItem="9Xz-HO-xsB" secondAttribute="bottom" constant="8" id="gxp-ib-Fe7"/>
+                                                <constraint firstItem="9Xz-HO-xsB" firstAttribute="leading" secondItem="vfj-0J-9ZP" secondAttribute="leading" constant="8" id="uIH-Pp-1P6"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -101,7 +115,7 @@
                             <tableViewSection headerTitle="mentions" id="63q-6a-tBg">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Jmd-Tr-isJ">
-                                        <rect key="frame" x="0.0" y="547.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="1003.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jmd-Tr-isJ" id="6t0-Le-adX">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -113,7 +127,7 @@
                             <tableViewSection headerTitle="trends" id="m5x-KE-yDe">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="QbB-PP-2lz">
-                                        <rect key="frame" x="0.0" y="647.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="1103.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QbB-PP-2lz" id="os1-9i-VGA">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -137,6 +151,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="latestTweet" destination="xwI-ls-Foq" id="ZlC-mM-fzf"/>
+                        <outlet property="timeline" destination="9Xz-HO-xsB" id="23R-DW-6V8"/>
                         <outlet property="tweetButton" destination="6Px-zx-tZo" id="ac8-iO-BNx"/>
                         <outlet property="tweetField" destination="XIf-aH-yin" id="DSB-Mx-CbE"/>
                     </connections>
