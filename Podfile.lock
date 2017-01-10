@@ -1,18 +1,21 @@
 PODS:
   - Alamofire (4.2.0)
   - Freddy (3.0.0)
+  - Kingfisher (3.2.4)
   - Result (3.1.0)
 
 DEPENDENCIES:
   - Alamofire
   - Freddy
+  - Kingfisher
   - Result
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   Freddy: 367f994c88a90dd3987293b4b1bec94a4530745a
+  Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
   Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
 
-PODFILE CHECKSUM: 93764db731f28057aadea6f05cb155a47fb0f82b
+PODFILE CHECKSUM: 7f3013ad593066803d3e2d65f5a2cd7ea631e89e
 
 COCOAPODS: 1.1.1

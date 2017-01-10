@@ -97,9 +97,15 @@ extension Tweet: Equatable {
 extension Tweet: JSONDecodable {
   
   init(json: JSON) throws {
-    author = try User(json: try JSON(json.getDictionary(at: "author")))
+    author = User(
+      id: try json.getInt(at: "userID"),
+      name: try json.getString(at: "name"),
+      location: try json.getString(at: "location"),
+      website: URL(string: try json.getString(at: "website", alongPath: [.NullBecomesNil]) ?? ""),
+      bio: try json.getString(at: "bio"),
+      avatar: URL(string: try json.getString(at: "avatar", alongPath: [.NullBecomesNil]) ?? ""))
     content = try json.getString(at: "content")
-    timestamp = DateFormatter.iso8601.date(from: try json.getString(at: "timestamp"))!
+    timestamp = DateFormatter.api.date(from: try json.getString(at: "timestamp"))!
   }
 }
 

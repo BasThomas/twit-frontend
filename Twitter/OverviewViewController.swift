@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  OverviewViewController.swift
 //  Twitter
 //
 //  Created by Bas Broek on 13/12/2016.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class OverviewViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
