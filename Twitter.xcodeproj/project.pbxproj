@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		49083A561E008589009D041C /* _Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49083A551E008589009D041C /* _Result.swift */; };
 		491CEAFE1E00826F00F3E241 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CEAFD1E00826F00F3E241 /* Network.swift */; };
+		495A87401E252C7C00728E93 /* OverviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A873F1E252C7C00728E93 /* OverviewTableViewController.swift */; };
 		4977A44E1E006458001CA724 /* DateFormatter+ISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977A44D1E006458001CA724 /* DateFormatter+ISO8601.swift */; };
 		49BA9CC41E00426900BBF0C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA9CC31E00426900BBF0C0 /* AppDelegate.swift */; };
-		49BA9CC61E00426900BBF0C0 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA9CC51E00426900BBF0C0 /* OverviewViewController.swift */; };
 		49BA9CC81E00426900BBF0C0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA9CC71E00426900BBF0C0 /* ProfileViewController.swift */; };
 		49BA9CCB1E00426900BBF0C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49BA9CC91E00426900BBF0C0 /* Main.storyboard */; };
 		49BA9CCD1E00426900BBF0C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49BA9CCC1E00426900BBF0C0 /* Assets.xcassets */; };
@@ -41,10 +41,10 @@
 		3D4CAC014126CF38138D480E /* Pods_Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49083A551E008589009D041C /* _Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Result.swift; sourceTree = "<group>"; };
 		491CEAFD1E00826F00F3E241 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		495A873F1E252C7C00728E93 /* OverviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewTableViewController.swift; sourceTree = "<group>"; };
 		4977A44D1E006458001CA724 /* DateFormatter+ISO8601.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateFormatter+ISO8601.swift"; sourceTree = "<group>"; };
 		49BA9CC01E00426900BBF0C0 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA9CC31E00426900BBF0C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		49BA9CC51E00426900BBF0C0 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		49BA9CC71E00426900BBF0C0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		49BA9CCA1E00426900BBF0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49BA9CCC1E00426900BBF0C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 				49BA9CE51E00428B00BBF0C0 /* Model */,
 				491CEAFF1E00827700F3E241 /* Control */,
 				49BA9CC31E00426900BBF0C0 /* AppDelegate.swift */,
-				49BA9CC51E00426900BBF0C0 /* OverviewViewController.swift */,
+				495A873F1E252C7C00728E93 /* OverviewTableViewController.swift */,
 				49BA9CC71E00426900BBF0C0 /* ProfileViewController.swift */,
 				49BA9CC91E00426900BBF0C0 /* Main.storyboard */,
 				49BA9CCC1E00426900BBF0C0 /* Assets.xcassets */,
@@ -397,6 +397,7 @@
 			files = (
 				49C213731E007D670063A93D /* Date+ISO8601.swift in Sources */,
 				49D6AA671E005F5500682874 /* DAO.swift in Sources */,
+				495A87401E252C7C00728E93 /* OverviewTableViewController.swift in Sources */,
 				49BA9CE71E00429800BBF0C0 /* User.swift in Sources */,
 				4977A44E1E006458001CA724 /* DateFormatter+ISO8601.swift in Sources */,
 				49BA9CE91E0042A000BBF0C0 /* Tweet.swift in Sources */,
@@ -404,7 +405,6 @@
 				491CEAFE1E00826F00F3E241 /* Network.swift in Sources */,
 				49BA9CC41E00426900BBF0C0 /* AppDelegate.swift in Sources */,
 				49083A561E008589009D041C /* _Result.swift in Sources */,
-				49BA9CC61E00426900BBF0C0 /* OverviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
