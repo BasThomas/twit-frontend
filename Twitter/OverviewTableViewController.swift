@@ -45,6 +45,20 @@ extension OverviewTableViewController {
   @IBAction func textFieldDidChange(_ sender: UITextField) {
     tweetButton.isEnabled = !sender.text!.isEmpty && user != nil
   }
+  
+  @IBAction func tweet(_ sender: UIButton) {
+    guard let user = user else { return }
+    let tweet = Tweet(author: user, content: tweetField.text!)
+    Network.create(tweet: tweet) { result in
+      switch result {
+      case .success:
+        self.tweetField.text = ""
+        self.fill()
+      case .failure:
+        ()
+      }
+    }
+  }
 }
 
 extension OverviewTableViewController {
