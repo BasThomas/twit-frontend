@@ -53,7 +53,6 @@ class FollowingTableViewController: UITableViewController {
     
     cell.username.text = followers[indexPath.row].name
     cell.accessoryType = following.contains(followers[indexPath.row]) ? .checkmark : .none
-    print(following.contains(followers[indexPath.row]))
     
     return cell
   }
