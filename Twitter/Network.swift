@@ -84,7 +84,6 @@ extension Network {
         }
         do {
           let json = try JSON(data: data)
-          print(json)
           let tweets = try json.decodedArray(type: Tweet.self)
           completionHandler(.success(tweets))
         } catch {
