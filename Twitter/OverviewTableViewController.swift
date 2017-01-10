@@ -32,10 +32,13 @@ class OverviewTableViewController: UITableViewController {
         case .failure:
           ()
         }
+        
+        strongSelf.reevaluate()
       }
     } else {
       user = nil
       sender.title = "Login"
+      reevaluate()
     }
   }
 }
@@ -43,7 +46,7 @@ class OverviewTableViewController: UITableViewController {
 extension OverviewTableViewController {
   
   @IBAction func textFieldDidChange(_ sender: UITextField) {
-    tweetButton.isEnabled = !sender.text!.isEmpty && user != nil
+    reevaluate()
   }
   
   @IBAction func tweet(_ sender: UIButton) {
@@ -67,8 +70,11 @@ extension OverviewTableViewController {
     guard let user = user else { return }
     Network.latestTweet(for: user) { [weak self] result in
       guard let strongSelf = self else { return }
-      print(result)
       strongSelf.latestTweet.text = result.value?.content
     }
+  }
+  
+  func reevaluate() {
+    tweetButton.isEnabled = !tweetField.text!.isEmpty && user != nil
   }
 }

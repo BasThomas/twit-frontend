@@ -23,7 +23,7 @@
                         <sections>
                             <tableViewSection headerTitle="Tweet" id="Q8b-lP-gzw">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="160" id="Iez-qe-GQE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="160" id="Iez-qe-GQE">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iez-qe-GQE" id="koY-bd-BMv">
@@ -62,7 +62,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Latest" id="j5F-yg-z5l">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="120" id="9bX-Uf-7Wi">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="120" id="9bX-Uf-7Wi">
                                         <rect key="frame" x="0.0" y="271.5" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9bX-Uf-7Wi" id="eA6-jT-cmk">
