@@ -54,8 +54,20 @@ extension User: DAO {
     fatalError()
   }
   
-  func timeline(for user: User, completionHandler: @escaping TweetsCompletionHandler) {
-    Network.timeline(for: user, completionHandler: completionHandler)
+  func timeline(completionHandler: @escaping TweetsCompletionHandler) {
+    Network.timeline(for: self, completionHandler: completionHandler)
+  }
+  
+  func latestTweet(completionHandler: @escaping TweetCompletionHandler) {
+    Network.latestTweet(for: self, completionHandler: completionHandler)
+  }
+  
+  func followers(completionHandler: @escaping UsersCompletionHandler) {
+    Network.followers(for: self, completionHandler: completionHandler)
+  }
+  
+  func following(completionHandler: @escaping UsersCompletionHandler) {
+    Network.following(for: self, completionHandler: completionHandler)
   }
 }
 

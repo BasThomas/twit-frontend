@@ -69,12 +69,12 @@ extension OverviewTableViewController {
   
   func fill() {
     guard let user = user else { return }
-    Network.latestTweet(for: user) { [weak self] result in
+    user.latestTweet { [weak self] result in
       guard let strongSelf = self else { return }
       strongSelf.latestTweet.text = result.value?.content
     }
     
-    Network.timeline(for: user) { [weak self] result in
+    user.timeline { [weak self] result in
       guard let strongSelf = self else { return }
       strongSelf.timeline.text = ""
       result.value?.forEach {

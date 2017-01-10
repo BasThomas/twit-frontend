@@ -94,6 +94,47 @@ extension Network {
       }
     }
   }
+}
+
+// MARK: - Users
+extension Network {
+  
+  static func create(user: User, completionHandler: @escaping UserIDCompletionHandler) {
+    
+  }
+  
+  static func user(for id: User.ID, completionHandler: @escaping UserCompletionHandler) {
+    Alamofire.request("\(baseURL)/users/\(id)", method: .get).responseJSON { response in
+      switch response.result {
+      case .success:
+        guard let data = response.data else {
+          completionHandler(.failure(.invalidData))
+          return
+        }
+        do {
+          let json = try JSON(data: data)
+          let user = try User(json: json)
+          completionHandler(.success(user))
+        } catch {
+          completionHandler(.failure(.freddy(error)))
+        }
+      case let .failure(error):
+        completionHandler(.failure(.alamofire(error)))
+      }
+    }
+  }
+  
+  static func update(user: User, completionHandler: @escaping CompletionHandler) {
+    
+  }
+  
+  static func delete(user: User, completionHandler: @escaping CompletionHandler) {
+    
+  }
+  
+  static func allUsers(completionHandler: @escaping UsersCompletionHandler) {
+    
+  }
   
   static func latestTweet(for user: User, completionHandler: @escaping TweetCompletionHandler) {
     Alamofire.request("\(baseURL)/users/\(user.name)/tweets/latest", method: .get).responseJSON { response in
@@ -136,17 +177,9 @@ extension Network {
       }
     }
   }
-}
-
-// MARK: - Users
-extension Network {
   
-  static func create(user: User, completionHandler: @escaping UserIDCompletionHandler) {
-    
-  }
-  
-  static func user(for id: User.ID, completionHandler: @escaping UserCompletionHandler) {
-    Alamofire.request("\(baseURL)/users/\(id)", method: .get).responseJSON { response in
+  static func followers(for user: User, completionHandler: @escaping UsersCompletionHandler) {
+    Alamofire.request("\(baseURL)/users/\(user.name)/followers", method: .get).responseJSON { response in
       switch response.result {
       case .success:
         guard let data = response.data else {
@@ -155,8 +188,8 @@ extension Network {
         }
         do {
           let json = try JSON(data: data)
-          let user = try User(json: json)
-          completionHandler(.success(user))
+          let users = try json.decodedArray(type: User.self)
+          completionHandler(.success(users))
         } catch {
           completionHandler(.failure(.freddy(error)))
         }
@@ -166,15 +199,24 @@ extension Network {
     }
   }
   
-  static func update(user: User, completionHandler: @escaping CompletionHandler) {
-    
-  }
-  
-  static func delete(user: User, completionHandler: @escaping CompletionHandler) {
-    
-  }
-  
-  static func allUsers(completionHandler: @escaping UsersCompletionHandler) {
-    
+  static func following(for user: User, completionHandler: @escaping UsersCompletionHandler) {
+    Alamofire.request("\(baseURL)/users/\(user.name)/following", method: .get).responseJSON { response in
+      switch response.result {
+      case .success:
+        guard let data = response.data else {
+          completionHandler(.failure(.invalidData))
+          return
+        }
+        do {
+          let json = try JSON(data: data)
+          let users = try json.decodedArray(type: User.self)
+          completionHandler(.success(users))
+        } catch {
+          completionHandler(.failure(.freddy(error)))
+        }
+      case let .failure(error):
+        completionHandler(.failure(.alamofire(error)))
+      }
+    }
   }
 }
