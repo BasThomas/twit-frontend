@@ -329,6 +329,7 @@
                     <connections>
                         <segue destination="5Sx-zv-KxY" kind="relationship" relationship="viewControllers" id="aWo-9J-jyb"/>
                         <segue destination="bJl-x4-cZO" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="Waf-i0-7pK" kind="relationship" relationship="viewControllers" id="Fh8-LX-asN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -354,6 +355,47 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
+        <!--Following-->
+        <scene sceneID="sdv-7P-9qP">
+            <objects>
+                <tableViewController id="Qpt-pt-mDc" customClass="FollowingTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EZ3-do-fqb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="user" id="FKU-6P-tPG" customClass="FollowingTableViewCell" customModule="Twitter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FKU-6P-tPG" id="e5E-di-aIK">
+                                    <rect key="frame" x="0.0" y="0.0" width="336" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEf-0d-iTh">
+                                            <rect key="frame" x="8" y="11" width="76" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="username" destination="PEf-0d-iTh" id="ahl-YD-Zfy"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Qpt-pt-mDc" id="Nb6-lI-gdJ"/>
+                            <outlet property="delegate" destination="Qpt-pt-mDc" id="Jbc-VF-63w"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Following" id="E7g-Cd-9Fa"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6VO-Gb-QLl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1688.8" y="1036.7316341829087"/>
+        </scene>
         <!--Overview-->
         <scene sceneID="PUU-v5-Pkc">
             <objects>
@@ -372,6 +414,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6S-Yb-78G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-321.58920539730138"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="6YH-pX-luv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Waf-i0-7pK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Ano-Me-2io"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lq5-gb-w0T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qpt-pt-mDc" kind="relationship" relationship="rootViewController" id="gl6-0d-RIQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="raG-1A-6Rw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749.60000000000002" y="1036.7316341829087"/>
         </scene>
     </scenes>
 </document>

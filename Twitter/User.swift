@@ -69,6 +69,14 @@ extension User: DAO {
   func following(completionHandler: @escaping UsersCompletionHandler) {
     Network.following(for: self, completionHandler: completionHandler)
   }
+  
+  func follow(user: User, completionHandler: @escaping CompletionHandler) {
+    Network.follow(user: user, forUser: self, completionHandler: completionHandler)
+  }
+  
+  func unfollow(user: User, completionHandler: @escaping CompletionHandler) {
+    Network.unfollow(user: user, forUser: self, completionHandler: completionHandler)
+  }
 }
 
 extension User {

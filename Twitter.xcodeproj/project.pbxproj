@@ -11,6 +11,8 @@
 		491CEAFE1E00826F00F3E241 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CEAFD1E00826F00F3E241 /* Network.swift */; };
 		495A87401E252C7C00728E93 /* OverviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A873F1E252C7C00728E93 /* OverviewTableViewController.swift */; };
 		4977A44E1E006458001CA724 /* DateFormatter+ISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977A44D1E006458001CA724 /* DateFormatter+ISO8601.swift */; };
+		4993AE591E25567700B0DC86 /* FollowingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4993AE581E25567700B0DC86 /* FollowingTableViewController.swift */; };
+		4993AE5B1E25568600B0DC86 /* FollowingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4993AE5A1E25568600B0DC86 /* FollowingTableViewCell.swift */; };
 		49BA9CC41E00426900BBF0C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA9CC31E00426900BBF0C0 /* AppDelegate.swift */; };
 		49BA9CC81E00426900BBF0C0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA9CC71E00426900BBF0C0 /* ProfileViewController.swift */; };
 		49BA9CCB1E00426900BBF0C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49BA9CC91E00426900BBF0C0 /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 		491CEAFD1E00826F00F3E241 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		495A873F1E252C7C00728E93 /* OverviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewTableViewController.swift; sourceTree = "<group>"; };
 		4977A44D1E006458001CA724 /* DateFormatter+ISO8601.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateFormatter+ISO8601.swift"; sourceTree = "<group>"; };
+		4993AE581E25567700B0DC86 /* FollowingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingTableViewController.swift; sourceTree = "<group>"; };
+		4993AE5A1E25568600B0DC86 /* FollowingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingTableViewCell.swift; sourceTree = "<group>"; };
 		49BA9CC01E00426900BBF0C0 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA9CC31E00426900BBF0C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49BA9CC71E00426900BBF0C0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				49BA9CC31E00426900BBF0C0 /* AppDelegate.swift */,
 				495A873F1E252C7C00728E93 /* OverviewTableViewController.swift */,
 				49BA9CC71E00426900BBF0C0 /* ProfileViewController.swift */,
+				4993AE581E25567700B0DC86 /* FollowingTableViewController.swift */,
+				4993AE5A1E25568600B0DC86 /* FollowingTableViewCell.swift */,
 				49BA9CC91E00426900BBF0C0 /* Main.storyboard */,
 				49BA9CCC1E00426900BBF0C0 /* Assets.xcassets */,
 				49BA9CCE1E00426900BBF0C0 /* LaunchScreen.storyboard */,
@@ -399,8 +405,10 @@
 				49D6AA671E005F5500682874 /* DAO.swift in Sources */,
 				495A87401E252C7C00728E93 /* OverviewTableViewController.swift in Sources */,
 				49BA9CE71E00429800BBF0C0 /* User.swift in Sources */,
+				4993AE591E25567700B0DC86 /* FollowingTableViewController.swift in Sources */,
 				4977A44E1E006458001CA724 /* DateFormatter+ISO8601.swift in Sources */,
 				49BA9CE91E0042A000BBF0C0 /* Tweet.swift in Sources */,
+				4993AE5B1E25568600B0DC86 /* FollowingTableViewCell.swift in Sources */,
 				49BA9CC81E00426900BBF0C0 /* ProfileViewController.swift in Sources */,
 				491CEAFE1E00826F00F3E241 /* Network.swift in Sources */,
 				49BA9CC41E00426900BBF0C0 /* AppDelegate.swift in Sources */,

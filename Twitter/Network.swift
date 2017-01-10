@@ -219,4 +219,35 @@ extension Network {
       }
     }
   }
+  
+  static func follow(user user2: User, forUser user1: User, completionHandler: @escaping CompletionHandler) {
+    Alamofire.request("\(baseURL)/users/\(user1.name)/follow/\(user2.id)", method: .post).responseJSON { response in
+      switch response.result {
+      case .success:
+        guard let _ = response.data else {
+          completionHandler(.failure(.invalidData))
+          return
+        }
+        completionHandler(.success())
+        
+      case let .failure(error):
+        completionHandler(.failure(.alamofire(error)))
+      }
+    }
+  }
+  
+  static func unfollow(user user2: User, forUser user1: User, completionHandler: @escaping CompletionHandler) {
+    Alamofire.request("\(baseURL)/users/\(user1.name)/unfollow/\(user2.id)", method: .post).responseJSON { response in
+      switch response.result {
+      case .success:
+        guard let _ = response.data else {
+          completionHandler(.failure(.invalidData))
+          return
+        }
+        completionHandler(.success())
+      case let .failure(error):
+        completionHandler(.failure(.alamofire(error)))
+      }
+    }
+  }
 }
