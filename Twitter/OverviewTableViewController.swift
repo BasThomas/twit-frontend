@@ -12,6 +12,7 @@ class OverviewTableViewController: UITableViewController {
   
   @IBOutlet var tweetField: UITextField!
   @IBOutlet var tweetButton: UIButton!
+  @IBOutlet var latestTweet: UITextView!
   
   var user: User?
   
@@ -27,6 +28,7 @@ class OverviewTableViewController: UITableViewController {
         case let .success(user):
           strongSelf.user = user
           sender.title = "Logout"
+          strongSelf.fill()
         case .failure:
           ()
         }
@@ -42,5 +44,17 @@ extension OverviewTableViewController {
   
   @IBAction func textFieldDidChange(_ sender: UITextField) {
     tweetButton.isEnabled = !sender.text!.isEmpty && user != nil
+  }
+}
+
+extension OverviewTableViewController {
+  
+  func fill() {
+    guard let user = user else { return }
+    Network.latestTweet(for: user) { [weak self] result in
+      guard let strongSelf = self else { return }
+      print(result)
+      strongSelf.latestTweet.text = result.value?.content
+    }
   }
 }

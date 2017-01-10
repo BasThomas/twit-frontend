@@ -94,6 +94,27 @@ extension Network {
       }
     }
   }
+  
+  static func latestTweet(for user: User, completionHandler: @escaping TweetCompletionHandler) {
+    Alamofire.request("\(baseURL)/users/\(user.name)/tweets/latest", method: .get).responseJSON { response in
+      switch response.result {
+      case .success:
+        guard let data = response.data else {
+          completionHandler(.failure(.invalidData))
+          return
+        }
+        do {
+          let json = try JSON(data: data)
+          let tweet = try Tweet(json: json)
+          completionHandler(.success(tweet))
+        } catch {
+          completionHandler(.failure(.freddy(error)))
+        }
+      case let .failure(error):
+        completionHandler(.failure(.alamofire(error)))
+      }
+    }
+  }
 }
 
 // MARK: - Users
