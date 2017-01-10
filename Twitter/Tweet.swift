@@ -9,6 +9,8 @@
 import Foundation
 import Freddy
 
+private let interceptor = true
+
 typealias Hashtag = String
 typealias Username = String
 
@@ -18,8 +20,15 @@ struct Tweet {
   let timestamp: Date
   
   init(author: User, content: String, timestamp: Date = Date()) {
+    if interceptor {
+      let content = content
+        .replacingOccurrences(of: "vet", with: "dik")
+        .replacingOccurrences(of: "cool", with: "hard")
+      self.content = content
+    } else {
+      self.content = content
+    }
     self.author = author
-    self.content = content
     self.timestamp = timestamp
   }
 }
