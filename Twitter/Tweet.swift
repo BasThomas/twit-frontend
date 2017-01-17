@@ -108,7 +108,6 @@ extension Tweet: JSONDecodable {
       avatar: URL(string: try json.getString(at: "avatar", alongPath: [.NullBecomesNil]) ?? ""))
     id = try json.getInt(at: "tweetID")
     content = try json.getString(at: "content")
-    print(try json.getString(at: "timestamp"))
     timestamp = DateFormatter.api.date(from: try json.getString(at: "timestamp"))!
   }
   
