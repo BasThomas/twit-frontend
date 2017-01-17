@@ -447,7 +447,7 @@
         <!--GO-->
         <scene sceneID="9y0-xt-j1Z">
             <objects>
-                <viewController id="rXV-CA-Xff" sceneMemberID="viewController">
+                <viewController id="rXV-CA-Xff" customClass="GOViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rpw-jZ-W9L"/>
                         <viewControllerLayoutGuide type="bottom" id="2Ml-cL-Snd"/>
@@ -455,9 +455,38 @@
                     <view key="view" contentMode="scaleToFill" id="k0U-WC-4lj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="tweet goes here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DtV-Qr-IDu">
+                                <rect key="frame" x="8" y="72" width="359" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="d3M-Tv-zhg"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEY-1A-saS">
+                                <rect key="frame" x="325" y="280" width="42" height="30"/>
+                                <state key="normal" title="Tweet"/>
+                                <connections>
+                                    <action selector="tweet:" destination="rXV-CA-Xff" eventType="touchUpInside" id="Fwp-n6-Lyj"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VEY-1A-saS" secondAttribute="trailing" constant="8" id="2rP-KZ-4fN"/>
+                            <constraint firstItem="DtV-Qr-IDu" firstAttribute="top" secondItem="Rpw-jZ-W9L" secondAttribute="bottom" constant="8" id="LnK-dG-OSr"/>
+                            <constraint firstItem="VEY-1A-saS" firstAttribute="top" secondItem="DtV-Qr-IDu" secondAttribute="bottom" constant="8" id="OBa-Pz-Mkc"/>
+                            <constraint firstAttribute="trailing" secondItem="DtV-Qr-IDu" secondAttribute="trailing" constant="8" id="akb-nV-Fhi"/>
+                            <constraint firstItem="DtV-Qr-IDu" firstAttribute="leading" secondItem="k0U-WC-4lj" secondAttribute="leading" constant="8" id="cvs-u0-5TY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="GO" id="cF2-i2-75E"/>
+                    <connections>
+                        <outlet property="tweetButton" destination="VEY-1A-saS" id="mle-I6-s8H"/>
+                        <outlet property="tweetField" destination="DtV-Qr-IDu" id="bdw-6i-n3M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mnd-GD-MAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

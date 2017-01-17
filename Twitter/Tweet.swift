@@ -57,6 +57,10 @@ extension Tweet: DAO {
   static var all: [Tweet] {
     fatalError()
   }
+  
+  func addToQueue() {
+    queued.append(self)
+  }
 }
 
 extension Tweet {
