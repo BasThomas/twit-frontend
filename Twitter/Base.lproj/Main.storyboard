@@ -332,11 +332,12 @@
                         <segue destination="Waf-i0-7pK" kind="relationship" relationship="viewControllers" id="Fh8-LX-asN"/>
                         <segue destination="HTw-V7-lYD" kind="relationship" relationship="viewControllers" id="TyA-dt-J8C"/>
                         <segue destination="YKF-ZV-OIh" kind="relationship" relationship="viewControllers" id="Czp-S3-eyx"/>
+                        <segue destination="MKF-Pp-Xjf" kind="relationship" relationship="viewControllers" id="B43-0X-sjt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-2345" y="1341"/>
         </scene>
         <!--Profile-->
         <scene sceneID="H09-Eu-dYg">
@@ -568,11 +569,83 @@
             </objects>
             <point key="canvasLocation" x="750" y="2465"/>
         </scene>
+        <!--Monitor-->
+        <scene sceneID="M3X-Ct-0my">
+            <objects>
+                <tableViewController id="mV7-vi-pNF" customClass="MonitorTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SDf-Oe-yw5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweet" id="eSW-u6-8SC" customClass="TweetTableViewCell" customModule="Twitter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eSW-u6-8SC" id="V86-4d-g9K">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tweet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qu-8h-pvG">
+                                            <rect key="frame" x="8" y="11" width="359" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="9qu-8h-pvG" firstAttribute="top" secondItem="V86-4d-g9K" secondAttribute="top" constant="11" id="2tC-hV-GdI"/>
+                                        <constraint firstAttribute="trailing" secondItem="9qu-8h-pvG" secondAttribute="trailing" constant="8" id="Ksl-Uz-6IZ"/>
+                                        <constraint firstItem="9qu-8h-pvG" firstAttribute="leading" secondItem="V86-4d-g9K" secondAttribute="leading" constant="8" id="h6x-dL-w98"/>
+                                        <constraint firstAttribute="bottom" secondItem="9qu-8h-pvG" secondAttribute="bottom" constant="11" id="jnD-xp-UaL"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="tweet" destination="9qu-8h-pvG" id="VPr-0O-gCP"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="mV7-vi-pNF" id="HhX-ZY-zfZ"/>
+                            <outlet property="delegate" destination="mV7-vi-pNF" id="Q0j-DP-EO5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Monitor" id="vGh-11-Rff">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LE4-X9-KKe">
+                            <connections>
+                                <action selector="addHashtag:" destination="mV7-vi-pNF" id="tlk-cO-VOl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wZ1-tI-eEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1689" y="3172"/>
+        </scene>
+        <!--Monitor-->
+        <scene sceneID="c4F-kj-W2g">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MKF-Pp-Xjf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Monitor" image="monitor" id="dz0-N6-F5B"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ff4-8s-l7j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mV7-vi-pNF" kind="relationship" relationship="rootViewController" id="JyV-RU-oql"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ki-yw-LpY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="3171"/>
+        </scene>
     </scenes>
     <resources>
         <image name="following" width="16" height="16"/>
         <image name="go" width="16" height="16"/>
         <image name="moderator" width="16" height="16"/>
+        <image name="monitor" width="16" height="16"/>
         <image name="overview" width="100" height="100"/>
         <image name="profile" width="100" height="100"/>
     </resources>
