@@ -141,6 +141,36 @@ extension Network {
     }
   }
   
+  static func addMonitor(forUser user: User, withHashtag hashtag: Hashtag, completionHandler: @escaping CompletionHandler) {
+    Alamofire.request("\(baseURL)/users/\(user.name)/monitors/\(hashtag)", method: .post).responseJSON { response in
+      switch response.result {
+      case .success:
+        guard let _ = response.data else {
+          completionHandler(.failure(.invalidData))
+          return
+        }
+        completionHandler(.success())
+      case let .failure(error):
+        completionHandler(.failure(.alamofire(error)))
+      }
+    }
+  }
+  
+  static func removeMonitors(forUser user: User, completionHandler: @escaping CompletionHandler) {
+    Alamofire.request("\(baseURL)/users/\(user.name)/monitors/remove", method: .delete).responseJSON { response in
+      switch response.result {
+      case .success:
+        guard let _ = response.data else {
+          completionHandler(.failure(.invalidData))
+          return
+        }
+        completionHandler(.success())
+      case let .failure(error):
+        completionHandler(.failure(.alamofire(error)))
+      }
+    }
+  }
+  
   static func update(user: User, completionHandler: @escaping CompletionHandler) {
     
   }

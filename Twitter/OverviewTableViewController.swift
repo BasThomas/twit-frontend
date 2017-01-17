@@ -30,8 +30,8 @@ class OverviewTableViewController: UITableViewController {
           strongSelf.user = user
           sender.title = "Logout"
           strongSelf.fill()
-        case .failure:
-          ()
+        case let .failure(error):
+          print(error)
         }
         
         strongSelf.reevaluate()
@@ -58,8 +58,8 @@ extension OverviewTableViewController {
       case .success:
         self.tweetField.text = ""
         self.fill()
-      case .failure:
-        ()
+      case let .failure(error):
+        print(error)
       }
     }
   }
