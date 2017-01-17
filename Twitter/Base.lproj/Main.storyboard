@@ -331,6 +331,7 @@
                         <segue destination="bJl-x4-cZO" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="Waf-i0-7pK" kind="relationship" relationship="viewControllers" id="Fh8-LX-asN"/>
                         <segue destination="HTw-V7-lYD" kind="relationship" relationship="viewControllers" id="TyA-dt-J8C"/>
+                        <segue destination="YKF-ZV-OIh" kind="relationship" relationship="viewControllers" id="Czp-S3-eyx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -341,7 +342,7 @@
         <scene sceneID="H09-Eu-dYg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bJl-x4-cZO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MmW-0v-go4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -443,11 +444,30 @@
             </objects>
             <point key="canvasLocation" x="1689" y="1737"/>
         </scene>
+        <!--GO-->
+        <scene sceneID="9y0-xt-j1Z">
+            <objects>
+                <viewController id="rXV-CA-Xff" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rpw-jZ-W9L"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Ml-cL-Snd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k0U-WC-4lj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="GO" id="cF2-i2-75E"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mnd-GD-MAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1689" y="2465"/>
+        </scene>
         <!--Overview-->
         <scene sceneID="PUU-v5-Pkc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Sx-zv-KxY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Overview" id="pCF-0S-I19"/>
+                    <tabBarItem key="tabBarItem" title="Overview" image="overview" id="pCF-0S-I19"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RuU-zo-MsM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -462,11 +482,11 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-321.58920539730138"/>
         </scene>
-        <!--Item-->
+        <!--Following-->
         <scene sceneID="6YH-pX-luv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Waf-i0-7pK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Ano-Me-2io"/>
+                    <tabBarItem key="tabBarItem" title="Following" image="following" id="Ano-Me-2io"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lq5-gb-w0T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -481,11 +501,11 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="1036.7316341829087"/>
         </scene>
-        <!--Item-->
+        <!--Moderator-->
         <scene sceneID="mpZ-7c-Zx4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HTw-V7-lYD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="2gz-9O-uSy"/>
+                    <tabBarItem key="tabBarItem" title="Moderator" image="moderator" id="2gz-9O-uSy"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rn1-hr-b3Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -500,5 +520,31 @@
             </objects>
             <point key="canvasLocation" x="750" y="1737"/>
         </scene>
+        <!--GO-->
+        <scene sceneID="MAw-hX-KyM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YKF-ZV-OIh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="GO" image="go" id="FyF-WJ-GnZ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gLV-Hg-0fz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rXV-CA-Xff" kind="relationship" relationship="rootViewController" id="vGS-fi-pfh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kk6-VG-ufC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="2465"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="following" width="16" height="16"/>
+        <image name="go" width="16" height="16"/>
+        <image name="moderator" width="16" height="16"/>
+        <image name="overview" width="100" height="100"/>
+        <image name="profile" width="100" height="100"/>
+    </resources>
 </document>
