@@ -569,7 +569,7 @@
             </objects>
             <point key="canvasLocation" x="750" y="2465"/>
         </scene>
-        <!--Monitor-->
+        <!--Monitor & Push-->
         <scene sceneID="M3X-Ct-0my">
             <objects>
                 <tableViewController id="mV7-vi-pNF" customClass="MonitorTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
@@ -609,7 +609,7 @@
                             <outlet property="delegate" destination="mV7-vi-pNF" id="Q0j-DP-EO5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Monitor" id="vGh-11-Rff">
+                    <navigationItem key="navigationItem" title="Monitor &amp; Push" id="vGh-11-Rff">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LE4-X9-KKe">
                             <connections>
                                 <action selector="addHashtag:" destination="mV7-vi-pNF" id="tlk-cO-VOl"/>
@@ -621,11 +621,11 @@
             </objects>
             <point key="canvasLocation" x="1689" y="3172"/>
         </scene>
-        <!--Monitor-->
+        <!--Monitor & Push-->
         <scene sceneID="c4F-kj-W2g">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MKF-Pp-Xjf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Monitor" image="monitor" id="dz0-N6-F5B"/>
+                    <tabBarItem key="tabBarItem" title="Monitor &amp; Push" image="monitor" id="dz0-N6-F5B"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ff4-8s-l7j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
