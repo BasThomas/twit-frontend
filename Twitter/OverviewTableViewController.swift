@@ -52,7 +52,7 @@ extension OverviewTableViewController {
   
   @IBAction func tweet(_ sender: UIButton) {
     guard let user = user else { return }
-    let tweet = Tweet(author: user, content: tweetField.text!)
+    let tweet = Tweet(id: -1, author: user, content: tweetField.text!)
     Network.create(tweet: tweet) { result in
       switch result {
       case .success:

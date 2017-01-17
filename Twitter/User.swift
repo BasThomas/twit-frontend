@@ -102,7 +102,7 @@ extension User: Equatable {
 extension User: JSONDecodable {
   
   init(json: JSON) throws {
-    id = try json.getInt(at: "id")
+    id = try json.getInt(at: "userID")
     name = try json.getString(at: "name")
     location = try json.getString(at: "location")
     website = URL(string: try json.getString(at: "website", alongPath: [.NullBecomesNil]) ?? "")
@@ -129,7 +129,7 @@ extension User: JSONEncodable {
     }
     
     return .dictionary([
-      "id": .int(id),
+      "userID": .int(id),
       "name": .string(name),
       "location": .string(location),
       "website": website,

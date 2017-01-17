@@ -70,12 +70,12 @@ class TweetTests: XCTestCase {
   
   func testDecoding() {
     do {
-      _ = try Tweet(json: plainJSON)
-      _ = try Tweet(json: hashtags1JSON)
-      _ = try Tweet(json: hashtags2JSON)
-      _ = try Tweet(json: mentions1JSON)
-      _ = try Tweet(json: mentions2JSON)
-      _ = try Tweet(json: mentionHashtagJSON)
+      _ = try Tweet(test: plainJSON)
+      _ = try Tweet(test: hashtags1JSON)
+      _ = try Tweet(test: hashtags2JSON)
+      _ = try Tweet(test: mentions1JSON)
+      _ = try Tweet(test: mentions2JSON)
+      _ = try Tweet(test: mentionHashtagJSON)
     } catch {
       XCTFail("Decoding should have succeeded: \(error)")
     }
@@ -94,6 +94,6 @@ class TweetTests: XCTestCase {
     XCTAssertEqual(plainJSON, plainJSON)
     XCTAssertEqual(plainTweet, plainTweet)
     XCTAssertEqual(plainJSON, plainTweet.toJSON())
-    XCTAssertEqual(plainTweet, try Tweet(json: plainJSON))
+    XCTAssertEqual(plainTweet, try Tweet(test: plainJSON))
   }
 }

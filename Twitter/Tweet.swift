@@ -15,11 +15,13 @@ typealias Hashtag = String
 typealias Username = String
 
 struct Tweet {
+  let id: Int
   let author: User
   let content: String
   let timestamp: Date
   
-  init(author: User, content: String, timestamp: Date = Date()) {
+  init(id: Int, author: User, content: String, timestamp: Date = Date()) {
+    self.id = id
     if interceptor {
       let content = content
         .replacingOccurrences(of: "vet", with: "dik")
@@ -90,7 +92,7 @@ extension Tweet {
 extension Tweet: Equatable {
   
   static func ==(lhs: Tweet, rhs: Tweet) -> Bool {
-    return lhs.content == rhs.content && lhs.timestamp == rhs.timestamp
+    return lhs.id == rhs.id && lhs.content == rhs.content && lhs.timestamp == rhs.timestamp
   }
 }
 
@@ -104,16 +106,51 @@ extension Tweet: JSONDecodable {
       website: URL(string: try json.getString(at: "website", alongPath: [.NullBecomesNil]) ?? ""),
       bio: try json.getString(at: "bio"),
       avatar: URL(string: try json.getString(at: "avatar", alongPath: [.NullBecomesNil]) ?? ""))
+    id = try json.getInt(at: "tweetID")
     content = try json.getString(at: "content")
+    print(try json.getString(at: "timestamp"))
     timestamp = DateFormatter.api.date(from: try json.getString(at: "timestamp"))!
+  }
+  
+  init(test json: JSON) throws {
+    author = User(
+      id: try json.getInt(at: "userID"),
+      name: try json.getString(at: "name"),
+      location: try json.getString(at: "location"),
+      website: URL(string: try json.getString(at: "website", alongPath: [.NullBecomesNil]) ?? ""),
+      bio: try json.getString(at: "bio"),
+      avatar: URL(string: try json.getString(at: "avatar", alongPath: [.NullBecomesNil]) ?? ""))
+    id = try json.getInt(at: "tweetID")
+    content = try json.getString(at: "content")
+    timestamp = DateFormatter.iso8601.date(from: try json.getString(at: "timestamp"))!
   }
 }
 
 extension Tweet: JSONEncodable {
   
   func toJSON() -> JSON {
+    let website: JSON
+    let avatar: JSON
+    if let websiteString = self.author.website?.absoluteString {
+      website = .string(websiteString)
+    } else {
+      website = .null
+    }
+    
+    if let avatarString = self.author.avatar?.absoluteString {
+      avatar = .string(avatarString)
+    } else {
+      avatar = .null
+    }
+    
     return .dictionary([
-      "author": author.toJSON(),
+      "tweetID": .int(id),
+      "userID": .int(author.id),
+      "website": website,
+      "avatar": avatar,
+      "bio": .string(author.bio),
+      "location": .string(author.location),
+      "name": .string(author.name),
       "content": .string(content),
       "timestamp": .string(DateFormatter.iso8601.string(from: timestamp))])
   }

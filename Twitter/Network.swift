@@ -250,4 +250,20 @@ extension Network {
       }
     }
   }
+  
+  static func delete(tweet: Tweet, fromUser user: User, completionHandler: @escaping CompletionHandler) {
+    let parameters: [String: Any] = ["userID": user.id]
+    Alamofire.request("\(baseURL)/tweets/\(tweet.id)", method: .delete, parameters: parameters).responseJSON { response in
+      switch response.result {
+      case .success:
+        guard let _ = response.data else {
+          completionHandler(.failure(.invalidData))
+          return
+        }
+        completionHandler(.success())
+      case let .failure(error):
+        completionHandler(.failure(.alamofire(error)))
+      }
+    }
+  }
 }

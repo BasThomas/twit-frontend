@@ -50,7 +50,7 @@ enum Mock {
     
     enum json {
       static let plain: JSON = .dictionary([
-        "id": .int(1),
+        "userID": .int(1),
         "name": .string("Bas"),
         "location": .string("The Netherlands"),
         "website": .string("http://www.basbroek.nl"),
@@ -58,7 +58,7 @@ enum Mock {
         "avatar": .string("http://www.google.com")])
       
       static let nilWebsite: JSON = .dictionary([
-        "id": .int(1),
+        "userID": .int(1),
         "name": .string("Bas"),
         "location": .string("The Netherlands"),
         "website": .null,
@@ -66,7 +66,7 @@ enum Mock {
         "avatar": .string("http://www.google.com")])
       
       static let nilAvatar: JSON = .dictionary([
-        "id": .int(1),
+        "userID": .int(1),
         "name": .string("Bas"),
         "location": .string("The Netherlands"),
         "website": .string("http://www.basbroek.nl"),
@@ -74,7 +74,7 @@ enum Mock {
         "avatar": .null])
       
       static let nilWebsiteAvatar: JSON = .dictionary([
-        "id": .int(1),
+        "userID": .int(1),
         "name": .string("Bas"),
         "location": .string("The Netherlands"),
         "website": .null,
@@ -86,64 +86,121 @@ enum Mock {
   enum tweet {
     enum object {
       static let plain = Tweet(
+        id: -1,
         author: Mock.user.object.plain,
         content: "This tweet contains no hashtags.",
         timestamp: now)
       
       static let hashtags1 = Tweet(
+        id: -1,
         author: Mock.user.object.plain,
         content: "This #tweet contains two #hashtags.",
         timestamp: now)
       
       static let hashtags2 = Tweet(
+        id: -1,
         author: Mock.user.object.plain,
         content: "This #tweet contains a hashtag.",
         timestamp: now)
       
       static let mentions1 = Tweet(
+        id: -1,
         author: Mock.user.object.plain,
         content: "@bas This tweet contains a mention.",
         timestamp: now)
       
       static let mentions2 = Tweet(
+        id: -1,
         author: Mock.user.object.plain,
         content: "@aart @bas This tweet contains two mentions.",
         timestamp: now)
       
       static let mentionHashtag = Tweet(
+        id: -1,
         author: Mock.user.object.plain,
         content: "@bas This tweet contains a mention and a #hashtag.",
         timestamp: now)
     }
     
     enum json {
+      static let website: JSON = {
+        if let websiteString = Mock.user.object.plain.website?.absoluteString {
+          return .string(websiteString)
+        } else {
+          return .null
+        }
+      }()
+      static let avatar: JSON = {
+        if let avatarString = Mock.user.object.plain.avatar?.absoluteString {
+          return .string(avatarString)
+        } else {
+          return .null
+        }
+      }()
+      
       static let plain: JSON = .dictionary([
-        "author": Mock.user.object.plain.toJSON(),
+        "tweetID": .int(-1),
+        "userID": .int(Mock.user.object.plain.id),
+        "website": website,
+        "avatar": avatar,
+        "bio": .string(Mock.user.object.plain.bio),
+        "location": .string(Mock.user.object.plain.location),
+        "name": .string(Mock.user.object.plain.name),
         "content": .string("This tweet contains no hashtags."),
         "timestamp": .string(DateFormatter.iso8601.string(from: now))])
       
       static let hashtags1: JSON = .dictionary([
-        "author": Mock.user.object.plain.toJSON(),
+        "tweetID": .int(-1),
+        "userID": .int(Mock.user.object.plain.id),
+        "website": website,
+        "avatar": avatar,
+        "bio": .string(Mock.user.object.plain.bio),
+        "location": .string(Mock.user.object.plain.location),
+        "name": .string(Mock.user.object.plain.name),
         "content": .string("This #tweet contains two #hashtags."),
         "timestamp": .string(DateFormatter.iso8601.string(from: now))])
       
       static let hashtags2: JSON = .dictionary([
-        "author": Mock.user.object.plain.toJSON(),
+        "tweetID": .int(-1),
+        "userID": .int(Mock.user.object.plain.id),
+        "website": website,
+        "avatar": avatar,
+        "bio": .string(Mock.user.object.plain.bio),
+        "location": .string(Mock.user.object.plain.location),
+        "name": .string(Mock.user.object.plain.name),
         "content": .string("This #tweet contains a hashtag."),
         "timestamp": .string(DateFormatter.iso8601.string(from: now))])
       
       static let mentions1: JSON = .dictionary([
-        "author": Mock.user.object.plain.toJSON(),
+        "tweetID": .int(-1),
+        "userID": .int(Mock.user.object.plain.id),
+        "website": website,
+        "avatar": avatar,
+        "bio": .string(Mock.user.object.plain.bio),
+        "location": .string(Mock.user.object.plain.location),
+        "name": .string(Mock.user.object.plain.name),
         "content": .string("@bas This tweet contains a mention."),
         "timestamp": .string(DateFormatter.iso8601.string(from: now))])
       
       static let mentions2: JSON = .dictionary([
-        "author": Mock.user.object.plain.toJSON(),
+        "tweetID": .int(-1),
+        "userID": .int(Mock.user.object.plain.id),
+        "website": website,
+        "avatar": avatar,
+        "bio": .string(Mock.user.object.plain.bio),
+        "location": .string(Mock.user.object.plain.location),
+        "name": .string(Mock.user.object.plain.name),
         "content": .string("@aart @bas This tweet contains two mentions."),
         "timestamp": .string(DateFormatter.iso8601.string(from: now))])
       
       static let mentionHashtag: JSON = .dictionary([
-        "author": Mock.user.object.plain.toJSON(),
+        "tweetID": .int(-1),
+        "userID": .int(Mock.user.object.plain.id),
+        "website": website,
+        "avatar": avatar,
+        "bio": .string(Mock.user.object.plain.bio),
+        "location": .string(Mock.user.object.plain.location),
+        "name": .string(Mock.user.object.plain.name),
         "content": .string("@bas This tweet contains a mention and a #hashtag."),
         "timestamp": .string(DateFormatter.iso8601.string(from: now))])
     }
